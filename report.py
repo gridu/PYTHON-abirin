@@ -7,7 +7,7 @@ from scrapper import Scrapper
 from crawler import Crawler
 import logging
 from storage import read_new, save
-
+from visualizer import visualize
 
 logger = logging.getLogger('report')
 logger.setLevel(logging.INFO)
@@ -32,10 +32,12 @@ def crawl():
     run(crawler)
     authors, articles = read_new(crawler.get_authors(), crawler.get_articles())
     save(authors, articles)
+    visualize(authors, articles)
 
 
 def scrap():
     run(Scrapper)
+
 
 if __name__ == "__main__":
     crawl()
