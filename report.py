@@ -3,7 +3,6 @@ Main file for running the project
 """
 
 from scrapy.crawler import CrawlerProcess
-from scrapper import Scrapper
 from crawler import Crawler
 import logging
 from storage import read_new, save
@@ -33,10 +32,6 @@ def crawl():
     authors, articles = read_new(crawler.get_authors(), crawler.get_articles())
     save(authors, articles)
     visualize(authors, articles)
-
-
-def scrap():
-    run(Scrapper)
 
 
 if __name__ == "__main__":

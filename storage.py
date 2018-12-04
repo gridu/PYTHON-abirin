@@ -8,6 +8,11 @@ storage_name = 'articles.txt'
 logger = logging.getLogger('report.storage')
 
 
+def change_storage(file_name):
+    global storage_name
+    storage_name = file_name
+
+
 def read_new(_authors, _articles):
     authors, articles = read()
     if not articles:
