@@ -12,6 +12,9 @@ date_format = '%b %d, %Y'
 
 
 class Crawler(CrawlSpider):
+    """
+    Inherited class crawling the grid website
+    """
     name = "crawler"
 
     allowed_domains = ['blog.griddynamics.com']
@@ -22,6 +25,11 @@ class Crawler(CrawlSpider):
     rules = (Rule(LinkExtractor(), callback='parse_page'),)
 
     def parse_page(self, response):
+        """
+        Parses the current page
+        :param response: current page
+        :return: void
+        """
         title = response.css('#postcontent > h1::text').extract_first()
 
         name = response.css('.author-template #authorbox h2 b::text').extract_first()
@@ -32,6 +40,12 @@ class Crawler(CrawlSpider):
             self.extract_article(response, title)
 
     def extract_article(self, response, title):
+        """
+        Extracts article data from loaded page and saves into list
+        :param response: loaded page
+        :param title: extracted title which is flag that page contains any article
+        :return: void
+        """
         date_str = response.css('#postcontent > div:nth-child(8) > span::text').extract_first()
         date = datetime.strptime(date_str, date_format)
         timestamp = date.timestamp()
@@ -44,6 +58,12 @@ class Crawler(CrawlSpider):
         self._articles.append(article)
 
     def extract_author(self, response, name):
+        """
+        Extracts author data from loaded page and saves into list
+        :param response: loaded page
+        :param name: extracted name which is flag that page contains any author
+        :return: void
+        """
         posts = response.css('.postlist a').extract()
         job_title = response.css('.author-template #authorbox h2::text').extract_first()
         linkedin = response.css('.authorsocial a[href*="linkedin.com"]::attr(href)').extract_first()
@@ -54,8 +74,16 @@ class Crawler(CrawlSpider):
         self._authors.append(author)
 
     def get_articles(self):
+        """
+        Sorts and returns extracted list of articles
+        :return: articles sorted by date
+        """
         self._articles.sort(key=lambda k: k['date'])
         return self._articles
 
     def get_authors(self):
+        """
+        Returns extracted list of authors
+        :return: authors
+        """
         return self._authors

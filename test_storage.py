@@ -1,4 +1,4 @@
-from storage import read_new, save, change_storage
+from storage import get, save, change_storage
 import unittest
 import os
 
@@ -10,7 +10,7 @@ class TestStorage(unittest.TestCase):
     def test_read_new_empty(self):
         self.prepare_storage()
 
-        authors, articles = read_new([], [])
+        authors, articles = get([], [])
         self.assertFalse(authors)
         self.assertFalse(articles)
 
@@ -23,7 +23,7 @@ class TestStorage(unittest.TestCase):
     def test_read_save(self):
         self.prepare_storage()
         save([{'name': 'author'}], [{'title': 'article', 'date': 1541631600.0}])
-        authors, articles = read_new([{'name': 'author2'}], [{'title': 'article2', 'date': 1542236400.0}])
+        authors, articles = get([{'name': 'author2'}], [{'title': 'article2', 'date': 1542236400.0}])
         self.assertEqual(len(articles), 2)
         self.assertEqual(len(authors), 2)
 

@@ -14,5 +14,5 @@ articles_test.txt - test data set
 
 articles.txt - default filename to store loaded data
 
-tests ran:
+tests ran:  
 ![tests run screenshot](tests_run.png)

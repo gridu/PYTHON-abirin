@@ -1,4 +1,4 @@
-from storage import read_new, change_storage
+from storage import get, change_storage
 import unittest
 from crawler import Crawler
 from scrapy.crawler import CrawlerProcess
@@ -21,7 +21,7 @@ class TestCrawler(unittest.TestCase):
         process.crawl(crawler)
         process.start()
 
-        authors, articles = read_new(crawler.get_authors(), crawler.get_articles())
+        authors, articles = get(crawler.get_authors(), crawler.get_articles())
         self.assertTrue(len(authors) > 20)
         self.assertTrue(len(articles) > 20)
 

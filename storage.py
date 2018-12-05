@@ -1,4 +1,6 @@
-
+"""
+This is json storage manager
+"""
 import json
 import os.path
 from datetime import datetime
@@ -9,11 +11,22 @@ logger = logging.getLogger('report.storage')
 
 
 def change_storage(file_name):
+    """
+    Changes the storage location
+    :param file_name: new name of the json storage file
+    :return: void
+    """
     global storage_name
     storage_name = file_name
 
 
-def read_new(_authors, _articles):
+def get(_authors, _articles):
+    """
+    Reads storage file, adds only new items from method input and returns everything
+    :param _authors: list of scrapped authors from website
+    :param _articles: list of scrapped articles from website
+    :return: tuple of authors, articles combined from new and stored in the storage
+    """
     authors, articles = read()
     if not articles:
         logger.info('first launch: storage is empty')
@@ -47,11 +60,21 @@ def read_new(_authors, _articles):
 
 
 def save(authors, articles):
+    """
+    Saves data into file in rewrite mode
+    :param authors: list
+    :param articles: list
+    :return: void
+    """
     with open(storage_name, 'w') as f:
         f.write(json.dumps({'authors': authors, 'articles': articles}, indent=2))
 
 
 def read():
+    """
+    Reads data from file
+    :return: authors, articles
+    """
     if not os.path.isfile(storage_name):
         with open(storage_name, 'w') as f:
             pass
