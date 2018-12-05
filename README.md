@@ -1,7 +1,9 @@
 # PYTHON-abirin
 
-report.py - main file that runs the program:
-python3 report.py
+## Parse GridDynamics Blog with Scrapy and visualize it
+
+### report.py - main file that runs the program:
+### python3 report.py
 
 
 crawler.py - scrapy's crawler that collects data
