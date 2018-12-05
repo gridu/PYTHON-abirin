@@ -7,7 +7,7 @@ import os
 file_name = 'test_storage.txt'
 
 
-class CrawlerTest(unittest.TestCase):
+class TestCrawler(unittest.TestCase):
 
     def test_crawler(self):
         self.prepare_storage()

@@ -5,7 +5,7 @@ import os
 file_name = 'test_storage.txt'
 
 
-class StorageTest(unittest.TestCase):
+class TestStorage(unittest.TestCase):
 
     def test_read_new_empty(self):
         self.prepare_storage()

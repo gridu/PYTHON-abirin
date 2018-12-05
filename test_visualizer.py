@@ -5,7 +5,7 @@ import unittest
 test_data = 'articles_test.txt'
 
 
-class VisualizeTest(unittest.TestCase):
+class TestVisualize(unittest.TestCase):
 
     def test_top_data(self):
         change_storage(test_data)
