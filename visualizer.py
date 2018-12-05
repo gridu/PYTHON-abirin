@@ -6,10 +6,8 @@ logger = logging.getLogger('report.visualizer')
 
 
 def visualize(_authors, _articles):
-    _authors.sort(reverse=True, key=lambda k: k['posts'])
-    _articles.sort(reverse=True, key=lambda k: k['date'])
-
-    print_top_articles_authors(_articles, _authors)
+    top_authors, top_articles = get_top_authors_articles(_authors, _articles)
+    print_top_authors_articles(top_authors, top_articles)
     top_tag_count, top_tags = collect_top_tags(_articles)
     show_plot(top_tag_count, top_tags)
 
@@ -40,10 +38,15 @@ def collect_top_tags(_articles):
     return top_tag_count, top_tags
 
 
-def print_top_articles_authors(_articles, _authors):
+def get_top_authors_articles(_authors, _articles):
+    _authors.sort(reverse=True, key=lambda k: k['posts'])
+    _articles.sort(reverse=True, key=lambda k: k['date'])
     top_authors = _authors[:5]
     top_articles = _articles[:5]
+    return top_authors, top_articles
 
+
+def print_top_authors_articles(top_authors, top_articles):
     logger.info('top authors:')
     for index, author in enumerate(top_authors):
         print(f"{str(index + 1)}. {author['name']} - {author['posts']}")

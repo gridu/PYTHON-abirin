@@ -1,0 +1,107 @@
+{
+  "authors": [
+    {
+      "name": "author6",
+      "posts": 1
+    },
+    {
+      "name": "author5",
+      "posts": 5
+    },
+    {
+      "name": "author3",
+      "posts": 7
+    },
+    {
+      "name": "author2",
+      "posts": 13
+    },
+    {
+      "name": "author1",
+      "posts": 18
+    },
+    {
+      "name": "author4",
+      "posts": 6
+    }
+  ],
+  "articles": [
+    {
+      "title": "article1",
+      "date": 1481497200.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag5",
+        "tag2"
+      ]
+    },
+    {
+      "title": "article2",
+      "date": 1481497300.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag4",
+        "tag2"
+      ]
+    },
+    {
+      "title": "article3",
+      "date": 1481497400.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag1",
+        "tag3"
+      ]
+    },
+    {
+      "title": "article4",
+      "date": 1481497500.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag5",
+        "tag2"
+      ]
+    },
+    {
+      "title": "article5",
+      "date": 1481497600.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag4",
+        "tag2"
+      ]
+    },
+    {
+      "title": "article6",
+      "date": 1481497700.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag1",
+        "tag3"
+      ]
+    },
+    {
+      "title": "article7",
+      "date": 1481497800.0,
+      "authors": [
+        "author4"
+      ],
+      "tags": [
+        "tag5",
+        "tag3"
+      ]
+    }
+  ]
+}
